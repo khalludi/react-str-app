@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import backgroundVideo from './str_snow_final_181-360.mp4';
 
 function App() {
   const [keyword, setKeyword] = useState("");
@@ -33,13 +34,23 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <div>
-        <h1>Short term is {keyword}</h1>
-        <button onClick={spinWord}>Spin</button>
+    <>
+      <div className="App">
+        <video autoPlay loop muted>
+          <source src={backgroundVideo} type='video/mp4' />
+        </video>
+        <div className="str-container">
+          <div>
+            <h1>Short term is <strong>{keyword}</strong></h1>
+            <button className='button-34' onClick={spinWord}>SPIN</button>
+          </div>
+        </div>
       </div>
       <ToastContainer />
-    </div>
+      {/* <video autoPlay loop muted>
+        <source src={backgroundVideo} type='video/mp4' />
+      </video> */}
+    </>
   );
 }
 
